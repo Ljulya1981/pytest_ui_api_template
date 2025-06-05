@@ -1,6 +1,6 @@
 # pytest_ui_api_template
 
-## Шаблон для автоматизации тестирования на Python
+## Описание и структура проекта
 
 ### Шаги:
 1. Склонировать проект 'git clone https://github.com/Ljulya1981/pytest_ui_api_template.git'
@@ -17,10 +17,7 @@
 
 ### Cтруктура:
     - ./test - тесты
-    - ./pages - описание страниц
-    - ./api - хелперы для работы с API
-    - ./db - хелперы для работы с БД
-
+    
 ### Полезные ссылки
 - [Подсказка по markdown](https://www.markdownguide.org/basic-syntax/)
 - [Генератор файла .gitignor](https://www.toptal.com/developers/gitignore)
@@ -29,3 +26,10 @@
 - pip install pytest
 - pip install selenium
 - pip install webdriver-manager
+- pip install requests
+- pip install allure
+- pip install allure-pytest
+- pip install SQLAlchemy
+
+### Ссылка на финальный проект
+- https://studentskypro.yonote.ru/share/ba89b5e3-84ae-4619-8242-ebe9cc477e69
