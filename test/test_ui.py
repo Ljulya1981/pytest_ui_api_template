@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 import allure
+from test.conftest import ui_url
 
 
 @allure.title("Поиск фильма по названию на кириллице")
@@ -7,7 +8,7 @@ import allure
 @allure.severity("критический")
 def test_by_valid_symbol_rus_positive(browser):
     with allure.step("Открытие страницы приложения"):
-        browser.get("https://www.kinopoisk.ru/")
+        browser.get(ui_url)
     with allure.step("Ввод в строку поиска названия фильма на кириллице"):
         browser.find_element(By.NAME, "kp_query").send_keys("Титаник")
     with allure.step("Нажатие на название фильма в выпадающем списка предложенных фильмов"):
@@ -21,7 +22,7 @@ def test_by_valid_symbol_rus_positive(browser):
 @allure.severity("критический")
 def test_by_valid_symbol_num_positive(browser):
     with allure.step("Открытие страницы приложения"):
-        browser.get("https://www.kinopoisk.ru/")
+        browser.get(ui_url)
     with allure.step("Ввод в строку поиска названия фильма из цифр"):
         browser.find_element(By.NAME, "kp_query").send_keys("2012")
     with allure.step("Нажатие на название фильма в выпадающем списка предложенных фильмов"):
@@ -35,7 +36,7 @@ def test_by_valid_symbol_num_positive(browser):
 @allure.severity("критический")
 def test_by_valid_symbol_ing_positive(browser):
     with allure.step("Открытие страницы приложения"):
-        browser.get("https://www.kinopoisk.ru/")
+        browser.get(ui_url)
     with allure.step("Ввод в строку поиска названия фильма на латинице"):
         browser.find_element(By.NAME, "kp_query").send_keys("Doom")
     with allure.step("Нажатие на название фильма в выпадающем списка предложенных фильмов"):
@@ -49,7 +50,7 @@ def test_by_valid_symbol_ing_positive(browser):
 @allure.severity("критический")
 def test_by_invalid_symbol_negative(browser):
     with allure.step("Открытие страницы приложения"):
-        browser.get("https://www.kinopoisk.ru/")
+        browser.get(ui_url)
     with allure.step("Ввод в строку поиска рандомного набора цифр и латиницы"):
         browser.find_element(By.NAME, "kp_query").send_keys("1эзен")
     with allure.step("Проверка результата"):
@@ -61,7 +62,7 @@ def test_by_invalid_symbol_negative(browser):
 @allure.severity("критический")
 def test_by_invalid_symbol_negative_signs(browser):
     with allure.step("Открытие страницы приложения"):
-        browser.get("https://www.kinopoisk.ru/")
+        browser.get(ui_url)
     with allure.step("Ввод в строку поиска набора спецсиволов"):
         browser.find_element(By.NAME, "kp_query").send_keys("*****")
     with allure.step("Проверка результата"):
