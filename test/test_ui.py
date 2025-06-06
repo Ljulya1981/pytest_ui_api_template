@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 import allure
+import pytest
 from test.conftest import ui_url
 
 
+@pytest.mark.ui
 @allure.title("Поиск фильма по названию на кириллице")
 @allure.description("Тест позитивный проверяет поиск фильма по названию на кириллице")
 @allure.severity("критический")
@@ -17,6 +19,7 @@ def test_by_valid_symbol_rus_positive(browser):
         assert browser.find_element(By.CSS_SELECTOR, "span[data-tid='75209b22']").text == "Титаник (1997)"
 
 
+@pytest.mark.ui
 @allure.title("Поиск фильма по названию из цифр")
 @allure.description("Тест позитивный проверяет поиск фильма по названию из цифр")
 @allure.severity("критический")
@@ -31,6 +34,7 @@ def test_by_valid_symbol_num_positive(browser):
         assert browser.find_element(By.CSS_SELECTOR, "span[data-tid='75209b22']").text == "2012 (2009)"
 
 
+@pytest.mark.ui
 @allure.title("Поиск фильма по названию на латинице")
 @allure.description("Тест позитивный проверяет поиск фильма по названию на латинице")
 @allure.severity("критический")
@@ -45,6 +49,7 @@ def test_by_valid_symbol_ing_positive(browser):
         assert browser.find_element(By.CSS_SELECTOR, "span[data-tid='75209b22']").text == "Doom (2005)"
 
 
+@pytest.mark.ui
 @allure.title("Поиск фильма по несуществующему названию (рандомный набор цифр и латиницы)")
 @allure.description("Тест негативный проверяет поиск фильма по несуществующему названию (рандомный набор цифр и латиницы)")
 @allure.severity("критический")
@@ -57,6 +62,7 @@ def test_by_invalid_symbol_negative(browser):
         assert browser.find_element(By.CSS_SELECTOR, ".styles_emptySuggest__XEkB0").text == "По вашему запросу ничего не найдено"
 
 
+@pytest.mark.ui
 @allure.title("Поиск фильма по несуществующему названию (набор спецсимволов)")
 @allure.description("Тест негативный проверяет поиск фильма по несуществующему названию (набор спецсимволов)")
 @allure.severity("критический")
